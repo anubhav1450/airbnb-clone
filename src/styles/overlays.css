@@ -1,0 +1,376 @@
+.round-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.16s ease, transform 0.08s ease;
+}
+.round-btn:hover {
+  background: var(--grey200);
+}
+.round-btn:active {
+  transform: scale(0.9);
+}
+
+/* ---------- Photo tour ---------- */
+.tour {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(28px);
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), visibility 0s linear 0.3s;
+}
+.tour.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition-delay: 0s;
+}
+.tour__bar {
+  position: relative;
+  z-index: 5;
+  height: 88px;
+  flex: none;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+}
+.tour__back {
+  margin-left: -8px;
+}
+.tour__title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22.88px;
+}
+.tour__actions {
+  display: flex;
+  gap: 2px;
+}
+.tour__scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+.tour__inner {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 24px 96px;
+}
+.tour__nav {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 12px;
+}
+.tile {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+.tile img {
+  width: 100%;
+  aspect-ratio: 111.5 / 105.19;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #eee;
+  transition: transform 0.25s var(--ease), filter 0.2s;
+}
+.tile span {
+  color: var(--muted2);
+  line-height: 18px;
+}
+.tile:hover img {
+  transform: scale(1.04);
+  filter: brightness(0.94);
+}
+.tile:active img {
+  transform: scale(0.99);
+}
+.tour__rooms {
+  margin-top: 40px;
+}
+.tour__room {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 60px;
+  padding: 16px 0 4px;
+}
+.tour__room-head {
+  position: sticky;
+  top: 20px;
+  align-self: start;
+}
+.tour__room-title {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 35.2px;
+  letter-spacing: -0.64px;
+}
+.tour__room-sub {
+  margin-top: 8px;
+  font-size: 16px;
+  line-height: 22.4px;
+  color: var(--muted2);
+}
+.tour__photos {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.tour__row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.tour__row--pair {
+  grid-template-columns: 1fr 1fr;
+}
+.tour-photo {
+  position: relative;
+  overflow: hidden;
+  height: 148.5px;
+  border-radius: 8px;
+  background: #eee;
+}
+.tour-photo--wide {
+  height: 305.5px;
+}
+.tour-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s var(--ease);
+}
+.tour-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  transition: background 0.2s;
+}
+.tour-photo:hover::after {
+  background: rgba(0, 0, 0, 0.08);
+}
+.tour-photo:hover img {
+  transform: scale(1.04);
+}
+.tour-photo:active img {
+  transform: scale(1);
+}
+
+/* ---------- Lightbox ---------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 140;
+  background: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s, visibility 0s linear 0.25s;
+}
+.lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+.lightbox__bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  height: 72px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.lightbox__bar > .round-btn {
+  margin-left: -8px;
+}
+.lightbox__title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22.88px;
+}
+.lightbox__right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.lightbox__stage {
+  position: absolute;
+  inset: 0;
+  padding: 88px 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox__stage img {
+  max-width: min(1100px, 100%);
+  max-height: 100%;
+  object-fit: contain;
+}
+.lightbox__arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  width: 40px;
+  height: 40px;
+  transform: translateY(-50%);
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.16s ease, transform 0.08s ease;
+}
+.lightbox__arrow--prev {
+  left: 20px;
+}
+.lightbox__arrow--next {
+  right: 20px;
+}
+.lightbox__arrow:hover {
+  background: var(--grey100);
+}
+.lightbox__arrow:active {
+  transform: translateY(-50%) scale(0.92);
+}
+.lightbox__arrow:disabled {
+  opacity: 0.28;
+  cursor: default;
+  border-color: #ccc;
+}
+.lightbox__arrow:disabled:hover {
+  background: #fff;
+}
+
+/* ---------- Amenities dialog ---------- */
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0s linear 0.2s;
+}
+.scrim.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+.amen-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 160;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  transition: visibility 0s linear 0.25s;
+}
+.amen-modal.is-open {
+  visibility: visible;
+  transition-delay: 0s;
+}
+.amen {
+  width: 780px;
+  max-width: calc(100vw - 48px);
+  max-height: calc(100vh - 96px);
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  transform: translateY(20px);
+  transition: transform 0.25s var(--ease);
+}
+.amen-modal.is-open .amen {
+  transform: none;
+}
+.amen__bar {
+  flex: none;
+  height: 64px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+}
+.amen__bar .round-btn {
+  margin-left: -8px;
+}
+.amen__body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 0 48px 48px;
+}
+.amen__body h2 {
+  margin-top: 12px;
+  font-size: 22px;
+  line-height: 31.46px;
+}
+.amen__group {
+  margin-top: 24px;
+}
+.amen__group + .amen__group {
+  margin-top: 30px;
+}
+.amen__group h3 {
+  font-size: 18px;
+  line-height: 25.74px;
+}
+.amen__row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 57px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 16px;
+  line-height: 22.88px;
+}
+.amen__group h3 + .amen__row {
+  margin-top: 3.5px;
+}
+
+/* ---------- Toast ---------- */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 32px;
+  z-index: 200;
+  padding: 14px 22px;
+  border-radius: 8px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, 20px);
+  transition: opacity 0.2s, transform 0.2s;
+}
+.toast.is-shown {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}

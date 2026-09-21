@@ -1,0 +1,9 @@
+AirbnbCerealVF.woff2 — the font used by the reference page.
+
+Not an open-source font. Its embedded name table reads:
+  "Copyright 2018, 2023-2025 Airbnb. All rights reserved. PixelFix Copyright 2025 Dalton Maag Ltd"
+  "...This is not a stable deliverable... Not for distribution or release."
+  Licence: http://www.daltonmaag.com/eula
+
+It is included in this project only because the take-home task asks for a pixel-identical recreation of the reference,
+and only for learning / assessment purposes. Do not publish or redistribute it (keep this repository and zip private).
