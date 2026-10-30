@@ -9,8 +9,7 @@ views (Photo Tour, Lightbox). Source of truth: the live reference (see `docs/ref
 - Reproduce, don't redesign: no extra features, no "improvements". If the reference does something odd, match it.
 - Stack: Vite + React + JavaScript (no TypeScript), no backend, no runtime CDN dependencies.
 - Desktop only (≥1269px wide is what was measured). No responsive/mobile work.
-- Fonts: the reference's own *Airbnb Cereal VF* (`public/assets/fonts/`, declared in `src/styles/fonts.css`), included for
-  learning/assessment purposes only — proprietary, keep the repo/zip private (see `public/assets/fonts/NOTICE.txt`).
+- Fonts: self-hosted Albert Sans, licensed under SIL OFL 1.1. Preserve the bundled license. Do not reintroduce proprietary Airbnb Cereal.
 
 ## Layout of the repo
 - `src/components/*` one component per page section/overlay; `src/data/*` static content (no fetching);

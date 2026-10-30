@@ -1,8 +1,8 @@
-/* Airbnb Cereal VF — the reference's font: one variable file; weights used: 400 body, 500 headings/buttons/links/labels,
-   700 rating numbers and CHECK-IN/CHECKOUT/GUESTS labels. Included for learning purposes; see docs/font-notes.md. */
+/* Self-hosted Albert Sans, SIL Open Font License 1.1. See /assets/fonts/OFL.txt. */
 @font-face {
-  font-family: 'Airbnb Cereal VF';
-  src: url('/assets/fonts/AirbnbCerealVF.woff2') format('woff2-variations');
-  font-weight: 200 900;
+  font-family: 'Albert Sans';
+  src: url('/assets/fonts/AlbertSans-Variable.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 100 900;
   font-display: swap;
 }

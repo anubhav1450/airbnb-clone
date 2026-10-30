@@ -1,6 +1,6 @@
 # Airbnb listing clone — Romantic Jacuzzi 1BHK, Candolim
 
-Desktop-only, pixel-matched recreation of one Airbnb listing page with its two overlay views:
+Desktop-only recreation of one Airbnb listing page with its two overlay views:
 **Listing page**, **Photo Tour** (full-screen gallery) and **Lightbox** (single-photo viewer).
 Built for the Playpower Labs take-home task. Stack: **Vite + React + JavaScript**, no backend, no TypeScript.
 
@@ -37,10 +37,7 @@ docs/             reference-inspection.md, font-notes.md, architecture.{svg,png,
 ```
 
 ## Decisions worth knowing
-- **Font.** The reference's own *Airbnb Cereal VF* (one 67.8 KB variable woff2; 400 body, 500 headings/buttons/links/labels,
-  700 rating numbers and field labels) is used, declared exactly as the reference declares it (`src/styles/fonts.css`).
-  It is proprietary ("All rights reserved … Not for distribution or release"), included for learning/assessment purposes
-  only — keep the repo and zip private; details in `docs/font-notes.md` and `public/assets/fonts/NOTICE.txt`.
+- **Font.** Self-hosted Albert Sans (SIL Open Font License 1.1), with the license included under `public/assets/fonts/OFL.txt`. Proprietary Airbnb Cereal is not included in the current tree. See `docs/font-notes.md`.
 - **Assets.** The 43 gallery photos, UI images and avatars are the reference's publicly served files, saved into
   `public/assets/` (see `docs/reference-inspection.md`). Icons are SVGs captured from the rendered reference DOM
   (`src/data/icons.js`, `amenityData.js`). If Playpower says the assets must not be reused, replace the files in
@@ -56,8 +53,7 @@ docs/             reference-inspection.md, font-notes.md, architecture.{svg,png,
 ## Verification method
 `tools/dump.js` records geometry + computed style for every element on both the reference and the clone at the same
 1269×732 viewport; `tools/diff.mjs` matches elements by text / image / aria-label and reports differences with
-cascade suppression. Final state: page height 6265px vs 6265px reference; remaining differences are sub-pixel
-rounding. Overlays were compared open (Photo Tour,
+cascade suppression. The original assessment version matched the reference page height of 6265px; those measurements predate the switch to Albert Sans and are not a claim about the current typography. Overlays were compared open (Photo Tour,
 Lightbox, Amenities). Real keyboard input (Tab, ←/→, Esc) was tested in the browser pane.
 
 ## Architecture diagram
